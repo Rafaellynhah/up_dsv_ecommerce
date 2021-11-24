@@ -21,14 +21,21 @@ namespace API.Controllers
         {
             _context.Categorias.AddRange(new Categoria[]
                 {
-                    new Categoria { CategoriaId = 1, Nome = "Categoria 1" },
+                    new Categoria { CategoriaId = 1, Nome = "Bebida" },
+                    new Categoria { CategoriaId = 2, Nome = "Chocolate"},
                 }
             );
             _context.Produtos.AddRange(new Produto[]
                 {
-                    new Produto { ProdutoId = 1, Nome = "Produto 1", Preco = 1, Quantidade = 1, CategoriaId = 1 },
-                    new Produto { ProdutoId = 2, Nome = "Produto 2", Preco = 2, Quantidade = 2, CategoriaId = 1 },
-                    new Produto { ProdutoId = 3, Nome = "Produto 3", Preco = 3, Quantidade = 3, CategoriaId = 1 },
+                    new Produto { ProdutoId = 1, Nome = "Heineken", Preco = 5, Quantidade = 10, CategoriaId = 1, Descricao = "Melhor cerveja"},
+                    new Produto { ProdutoId = 2, Nome = "Sol", Preco = 3, Quantidade = 5, CategoriaId = 1, Descricao = "Bem mais ou menos" },
+                    new Produto { ProdutoId = 3, Nome = "Kinder Ovo", Preco = 8, Quantidade = 6, CategoriaId = 2, Descricao = "Bom demais" },
+                }
+            );
+            _context.MetodoPagamentos.AddRange(new MetodoPagamento[]
+                {
+                    new MetodoPagamento { MetodoPagamentoId = 1, Nome = "Cartão", Descricao = "Credito"},
+                    new MetodoPagamento { MetodoPagamentoId = 2, Nome = "Cartão", Descricao = "Debito"},
                 }
             );
             _context.SaveChanges();
