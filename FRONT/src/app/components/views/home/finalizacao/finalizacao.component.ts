@@ -7,9 +7,9 @@ import { FormaPagamento } from "src/app/models/FormaPagamento";
 import { Venda } from "src/app/models/venda";
 import { VendaService } from "src/app/services/venda.service";
 @Component({
-  selector: 'app-finalizar',
-  templateUrl: './finalizar.component.html',
-  styleUrls: ['./finalizar.component.css']
+  selector: 'app-finalizacao',
+  templateUrl: './finalizacao.component.html',
+  styleUrls: ['./finalizacao.component.css']
 })
 export class FinalizacaoComponent implements OnInit {
   itens: ItemVenda[] = [];
