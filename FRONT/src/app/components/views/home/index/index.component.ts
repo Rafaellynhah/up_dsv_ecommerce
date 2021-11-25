@@ -28,8 +28,10 @@ export class IndexComponent implements OnInit {
     adicionar(produto: Produto): void {
         let item: ItemVenda = {
             produto: produto,
+            nome: produto.nome,
             produtoId: produto.id!,
             quantidade: 1,
+            descricao: produto.descricao,
             preco: produto.preco,
             carrinhoId: localStorage.getItem("carrinhoId")! || "",
         };

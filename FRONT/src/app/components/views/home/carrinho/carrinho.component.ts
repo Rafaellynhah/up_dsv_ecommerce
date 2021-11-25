@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ItemVenda } from "src/app/models/item-venda";
 import { ItemService } from "src/app/services/item.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-carrinho",
@@ -9,17 +10,30 @@ import { ItemService } from "src/app/services/item.service";
 })
 export class CarrinhoComponent implements OnInit {
     itens: ItemVenda[] = [];
-    colunasExibidas: String[] = ["nome", "preco", "quantidade", "imagem"];
+    colunasExibidas: String[] = ["nome", "preco", "descricao", "imagem"];
     valorTotal!: number;
-    constructor(private itemService: ItemService) {}
+    constructor(private itemService: ItemService, private router: Router
+    ) { }
 
     ngOnInit(): void {
         let carrinhoId = localStorage.getItem("carrinhoId")! || "";
-        this.itemService.getByCartId(carrinhoId).subscribe((itens) => {
-            this.itens = itens;
-            this.valorTotal = this.itens.reduce((total, item) => {
-                return total + item.preco * item.quantidade;
-            }, 0);
-        });
+        this.itemService.getByCartId(carrinhoId)
+            .subscribe((itens) => {
+                this.itens = itens;
+                console.log(itens);
+                this.valorTotal = this.itens.reduce((total, item) => {
+                    return total + item.preco * item.quantidade;
+                }, 0);
+            });
+    }
+
+    finalizar() {
+        let carrinhoId = localStorage.getItem("carrinhoId")! || "";
+        if (!carrinhoId) {
+            alert('carrinho vazio');
+        } else {
+            this.router.navigate(["home/finalizar"]);
+        }
+
     }
 }

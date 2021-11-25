@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CarrinhoComponent } from "./components/views/home/carrinho/carrinho.component";
+import { FinalizacaoComponent } from "./components/views/home/finalizacao/finalizacao.component";
 import { IndexComponent } from "./components/views/home/index/index.component";
 import { CadastrarProdutoComponent } from "./components/views/produto/cadastrar-produto/cadastrar-produto.component";
 import { ListarProdutoComponent } from "./components/views/produto/listar-produto/listar-produto.component";
@@ -13,6 +14,10 @@ const routes: Routes = [
     {
         path: "home/carrinho",
         component: CarrinhoComponent,
+    },
+    {
+        path: "home/finalizar",
+        component: FinalizacaoComponent,
     },
     {
         path: "produto/listar",

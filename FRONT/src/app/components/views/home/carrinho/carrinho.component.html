@@ -1,4 +1,4 @@
-<mat-card>
+mat-card>
     <mat-card-header>
         <mat-card-title>Carrinho de Compras</mat-card-title>
     </mat-card-header>
@@ -15,20 +15,20 @@
             <ng-container matColumnDef="nome">
                 <th class="header" mat-header-cell *matHeaderCellDef>Nome</th>
                 <td mat-cell *matCellDef="let item">
-                    {{ item.produto!.nome }}
+                    {{ item.nome }}
                 </td>
             </ng-container>
             <!-- Coluna do Quantidade -->
-            <ng-container matColumnDef="quantidade">
+            <ng-container matColumnDef="descricao">
                 <th class="header" mat-header-cell *matHeaderCellDef>
                     Descrição
                 </th>
-                <td mat-cell *matCellDef="let item">{{ item.quantidade }}</td>
+                <td mat-cell *matCellDef="let item">{{ item.descricao }}</td>
             </ng-container>
             <!-- Coluna do Quantidade -->
             <ng-container matColumnDef="preco">
                 <th class="header" mat-header-cell *matHeaderCellDef>
-                    Quantidade
+                    Valor
                 </th>
                 <td mat-cell *matCellDef="let item">
                     {{ item.preco | currency: "BRL" }}
@@ -44,4 +44,14 @@
             Total: {{ valorTotal | currency: "BRL" }}
         </mat-card-title>
     </mat-card-header>
+    <mat-card-actions>
+        <button
+            (click)="finalizar()"
+            mat-stroked-button
+            color="warn"
+            mat-button
+        >
+            Adicionar
+        </button>
+    </mat-card-actions>
 </mat-card>

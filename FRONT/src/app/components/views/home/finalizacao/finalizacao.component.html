@@ -1,0 +1,39 @@
+<mat-card-header>
+    <mat-card-title>
+        Resumo
+    </mat-card-title>
+</mat-card-header>
+<mat-grid-list cols="10" rowHeight="350px" [gutterSize]="'16px'">
+    <mat-grid-tile *ngFor="let itens of itens">
+        <mat-card>
+            <img mat-card-image src="assets/images/sem_imagem.jpg" />
+            <mat-card-content>
+                <mat-card-title>
+                    {{ itens.nome }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{ itens.preco }}</mat-card-subtitle>
+            </mat-card-content>
+
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-card-header>
+    <mat-card-title>
+        Total: {{ valorTotal | currency: "BRL" }}
+    </mat-card-title>
+</mat-card-header>
+
+<form action="">
+    <label>Nome Completo:</label>
+    <input type="text" name="nome" [(ngModel)]="nome"  required />
+    <label>Formas de pagamento</label>
+    <select ngModel name="formapagamento">
+        <option *ngFor="let formapagamento of formapagamento" [ngValue]="formapagamento.id">
+            {{ formapagamento.nome }}
+        </option>
+    </select>
+    <button (click)="vender()" mat-stroked-button color="warn" mat-button>
+        Enviar
+    </button>
+</form>
