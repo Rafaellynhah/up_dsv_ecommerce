@@ -1,4 +1,4 @@
-export interface FormaPagamento {
+export interface MetodoPagamento {
     id?: number;
     nome: string;
     descricao: string;

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemVenda } from "src/app/models/item-venda";
 import { ItemService } from "src/app/services/item.service";
-import { FormaPagamentoService } from "src/app/services/formapagamento.service";
+import { MetodoPagamentoService } from "src/app/services/metodopagamento.service";
 import { Router } from "@angular/router";
-import { FormaPagamento } from "src/app/models/FormaPagamento";
+import { metodoPagamento } from "src/app/models/metodoPagamento";
 import { Venda } from "src/app/models/venda";
 import { VendaService } from "src/app/services/venda.service";
 @Component({
@@ -14,15 +14,15 @@ import { VendaService } from "src/app/services/venda.service";
 export class FinalizacaoComponent implements OnInit {
   itens: ItemVenda[] = [];
   valorTotal!: number;
-  formapagamento: FormaPagamento[] = [];
+  metodopagamento: metodoPagamento[] = [];
   nome!: string;
-  formapagamentoId!: number;
-  constructor(private itemService: ItemService, private router: Router, private formaPagamento: FormaPagamentoService, private vendaService: VendaService,) { }
+  metodopagamentoId!: number;
+  constructor(private itemService: ItemService, private router: Router, private metodoPagamento: metodoPagamentoService, private vendaService: VendaService,) { }
 
   ngOnInit(): void {
-    this.formaPagamento.list().subscribe((formapagamento) => {
-      this.formapagamento = formapagamento;
-      console.log(this.formapagamento);
+    this.metodoPagamento.list().subscribe((MetodoPagamento) => {
+      this.MetodoPagamento = MetodoPagamento;
+      console.log(this.MetodoPagamento);
     });
 
     let carrinhoId = localStorage.getItem("carrinhoId")! || "";
@@ -39,7 +39,7 @@ export class FinalizacaoComponent implements OnInit {
   vender(): void {
     let venda: Venda = {
         nome: this.nome,
-        formaPagamentoId: this.formapagamentoId,
+        MetodoPagamentoId: this.MetodoPagamentoId,
     };
     this.vendaService.create(venda).subscribe((venda) => {
         console.log(venda);
