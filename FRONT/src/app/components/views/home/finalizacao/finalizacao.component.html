@@ -28,9 +28,9 @@
     <label>Nome Completo:</label>
     <input type="text" name="nome" [(ngModel)]="nome"  required />
     <label>Formas de pagamento</label>
-    <select ngModel name="formapagamento">
-        <option *ngFor="let formapagamento of formapagamento" [ngValue]="formapagamento.id">
-            {{ formapagamento.nome }}
+    <select ngModel name="metodopagamento">
+        <option *ngFor="let metodopagamento of metodopagamento" [ngValue]="MetodoPagamentoId.id">
+            {{ MetodoPagamentoId.nome }}
         </option>
     </select>
     <button (click)="vender()" mat-stroked-button color="warn" mat-button>
