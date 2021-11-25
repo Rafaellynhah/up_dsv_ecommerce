@@ -1,2 +1,26 @@
 ### Listar vendas
-POST https://localhost:5001/api/venda/list
+GET https://localhost:5001/api/venda/list
+
+
+### Criar venda
+POST https://localhost:5001/api/venda/create
+Content-Type: application/json
+
+{
+    "Cliente" : "Vicelli",
+    "MetodoPagamentoId": 1,
+    "itens": [
+        {
+        "ProdutoId" : 1,
+        "Quantidade" : 1,
+        "Preco" : 5,
+        "CarrinhoId" : "f34e722e-bb9a-446a-998b-fa080df9ac1d"
+    },
+        {
+        "ProdutoId" : 2,
+        "Quantidade" : 1,
+        "Preco" : 3,
+        "CarrinhoId" : "f34e722e-bb9a-446a-998b-fa080df9ac1d"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+### Cadastrar um metodo de pagamento
+POST https://localhost:5001/api/metodo-pagamento/create
+Content-Type: application/json
+
+{
+    "Nome" : "Boleto",
+    "Descricao" : "Digital"
+}
+
+### Listar todas os metodos de pagamentos
+GET https://localhost:5001/api/metodo-pagamento/list
